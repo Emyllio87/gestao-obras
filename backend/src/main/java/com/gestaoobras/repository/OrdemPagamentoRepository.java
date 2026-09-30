@@ -1,0 +1,2 @@
+package com.gestaoobras.repository;
+import com.gestaoobras.model.entity.OrdemPagamento; import org.springframework.data.jpa.repository.JpaRepository; import org.springframework.data.repository.query.Param; import org.springframework.stereotype.Repository; import java.util.Optional; import java.util.UUID; @Repository public interface OrdemPagamentoRepository extends JpaRepository<OrdemPagamento, UUID> { Optional<OrdemPagamento> findByNumero(Long numero); }

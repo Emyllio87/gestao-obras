@@ -1,0 +1,3 @@
+package com.gestaoobras.controller;
+import com.gestaoobras.model.entity.Obra; import com.gestaoobras.service.ObraService; import io.swagger.v3.oas.annotations.tags.Tag; import lombok.RequiredArgsConstructor; import org.springframework.http.ResponseEntity; import org.springframework.web.bind.annotation.*; import java.util.UUID;
+@RestController @RequestMapping("/obras") @RequiredArgsConstructor @Tag(name="Obras") public class ObraController { private final ObraService svc; @GetMapping public ResponseEntity<?> listar(@RequestParam(defaultValue="0") int page, @RequestParam(defaultValue="10") int size){ return ResponseEntity.ok(svc.listar(page,size)); } @GetMapping("/{id}") public ResponseEntity<?> porId(@PathVariable UUID id){ return ResponseEntity.ok(svc.buscar(id)); } }
